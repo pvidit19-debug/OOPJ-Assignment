@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPJ Assignment Solutions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        /* Custom styles for code blocks for PDF clarity */
+        pre {
+            background-color: #2d3748; /* Darker background */
+            color: #f7fafc; /* Light text */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-top: 0.75rem;
+            font-size: 0.875rem; /* sm text */
+        }
+        .section-header {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+
+        <!-- Header and Download Button -->
+        <header class="bg-white shadow-lg rounded-xl p-6 mb-8 sticky top-4 z-10">
+            <h1 class="text-3xl font-extrabold text-indigo-700">OOPJ Assignment Solutions</h1>
+            <p class="text-gray-500 mt-1">Complete Answers for Q1 to Q15 with Code Examples.</p>
+            
+            <div class="mt-4 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                <button 
+                    id="downloadButton"
+                    onclick="downloadPDF()" 
+                    class="w-full sm:w-auto px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 ease-in-out transform hover:scale-[1.01]"
+                >
+                    Download as PDF
+                </button>
+                <div id="loader" class="hidden text-indigo-600 font-semibold flex items-center">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Generating PDF...
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Container (This is what will be converted to PDF) -->
+        <div id="content" class="bg-white p-6 md:p-10 rounded-xl shadow-lg leading-relaxed text-gray-700">
+            <!-- Start of Assignment Solutions Content -->
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-6 border-b-4 border-indigo-500 pb-2">Object-Oriented Programming with Java - Assignment Solutions (Q1 - Q15)</h1>
+
+            <!-- Q1 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q1. Explain Object-Oriented Programming (OOP) concepts and principles. Discuss encapsulation, inheritance, and polymorphism with suitable examples.</h2>
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Object-Oriented Programming (OOP)</h3>
+                <p>OOP is a programming paradigm based on the concept of "objects," which can contain data (fields/attributes) and code (procedures/methods). The main goal of OOP is to increase the flexibility and maintainability of programs.</p>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Four Pillars of OOP</h3>
+                
+                <h4 class="text-lg font-bold text-gray-800 mt-3">1. Encapsulation:</h4>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Concept:</strong> The mechanism of binding data (variables) and the code (methods) that manipulates the data together into a single unit (a class). It also hides the internal implementation details of an object from the outside world.</li>
+                    <li><strong>Implementation:</strong> Achieved in Java by declaring class variables as <code>private</code> and providing public <strong>getter</strong> and <strong>setter</strong> methods.</li>
+                </ul>
+                <pre class="whitespace-pre-wrap">
+class Employee {
+    private String name; // Data is hidden (private)
+    private double salary;
+ 
+    // Public getter to access data
+    public double getSalary() {
+        return salary;
+    }
+ 
+    // Public setter to modify data (with control/validation)
+    public void setSalary(double newSalary) {
+        if (newSalary > 0) {
+            this.salary = newSalary;
+        }
+    }
+}
+</pre>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-3">2. Inheritance:</h4>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Concept:</strong> The mechanism by which one class acquires the properties and behaviors of another class. It promotes <strong>code reusability</strong>.</li>
+                    <li><strong>Implementation:</strong> Achieved using the <code>extends</code> keyword in Java.</li>
+                </ul>
+                <pre class="whitespace-pre-wrap">
+class Vehicle { // Superclass
+    void startEngine() {
+        System.out.println("Vehicle engine started.");
+    }
+}
+ 
+class Car extends Vehicle { // Subclass inherits startEngine()
+    void drive() {
+        System.out.println("Car is driving.");
+    }
+}
+</pre>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-3">3. Polymorphism:</h4>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Concept:</strong> The ability of an object to take on many forms (e.g., method overloading and method overriding).</li>
+                    <li><strong>Example (Runtime Polymorphism):</strong></li>
+                </ul>
+                <pre class="whitespace-pre-wrap">
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound.");
+    }
+}
+ 
+class Dog extends Animal {
+    @Override
+    void sound() { // Overriding the method
+        System.out.println("Dog barks.");
+    }
+}
+</pre>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-3">4. Abstraction:</h4>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Concept:</strong> Showing only essential information and hiding the complex background details.</li>
+                    <li><strong>Implementation:</strong> Achieved using <strong>abstract classes</strong> and <strong>interfaces</strong>.</li>
+                </ul>
+            </section>
+
+            <!-- Q2 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q2. Discuss Java as an Object-Oriented and internet-enabled language. Explain its importance and usage in the industry.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Java as an Object-Oriented Language</h3>
+                <p>Java fully adheres to the OOP principles: everything is wrapped in classes, and it supports Encapsulation, Inheritance, Polymorphism, and Abstraction. </p>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Java as an Internet-Enabled Language</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Platform Independence (WORA):</strong> Compiled to bytecode, executable on any machine with a JVM, ideal for distributed web environments.</li>
+                    <li><strong>Security:</strong> The JVM's security manager restricts access to the client machine's file system (originally for Applets).</li>
+                    <li><strong>Networking API:</strong> Rich set of classes for networking (sockets, URLs, HTTP connections).</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Importance and Usage in the Industry</h3>
+                <div class="overflow-x-auto mt-4">
+                    <table class="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden shadow">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Industry Sector</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usage Examples</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200 text-sm">
+                            <tr><td class="px-4 py-3 font-medium">Enterprise Computing</td><td class="px-4 py-3">Server-side development for mission-critical systems (e.g., Spring Boot, Jakarta EE).</td></tr>
+                            <tr><td class="px-4 py-3 font-medium">Mobile Development</td><td class="px-4 py-3">Android application development (primarily Java/Kotlin).</td></tr>
+                            <tr><td class="px-4 py-3 font-medium">Financial Services</td><td class="px-4 py-3">Trading systems, risk management, and back-office operations.</td></tr>
+                            <tr><td class="px-4 py-3 font-medium">Big Data</td><td class="px-4 py-3">Core technologies like Apache Hadoop, Spark, and Kafka.</td></tr>
+                            <tr><td class="px-4 py-3 font-medium">Web & Cloud</td><td class="px-4 py-3">Microservices, RESTful APIs, and cloud-native applications.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Q3 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q3. Explain the concept of bytecode in Java. Describe the process of compiling and running a simple Java program. Discuss the roles of JVM, JDK, and JRE.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Concept of Bytecode</h3>
+                <p>Java Bytecode is an intermediate, machine-independent, low-level representation of the Java source code (stored in <code>.class</code> files). It is executable by the Java Virtual Machine (JVM) and ensures **platform independence** (WORA).</p>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Compiling and Running Process</h3>
+                <ol class="list-decimal ml-6 space-y-1">
+                    <li>**Source Code Creation:** Save code as <code>MyProgram.java</code>.</li>
+                    <li>**Compilation:** Use <code>javac MyProgram.java</code> to create <code>MyProgram.class</code> (bytecode).</li>
+                    <li>**Execution:** Use <code>java MyProgram</code> to run the bytecode on the JVM.</li>
+                </ol>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Roles of JVM, JDK, and JRE</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>JVM (Java Virtual Machine):</strong> Executes the bytecode; manages memory (Garbage Collection); provides the runtime environment.</li>
+                    <li><strong>JRE (Java Runtime Environment):</strong> Contains the **JVM** and Java **API classes**. Used by users to run Java applications.</li>
+                    <li><strong>JDK (Java Development Kit):</strong> Contains the **JRE** plus development tools like the **Java Compiler (<code>javac</code>)** and debugger. Used by programmers to develop Java applications.</li>
+                </ul>
+            </section>
+
+            <!-- Q4 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q4. Explain different data types in Java with examples. Discuss the use of variables, dynamic initialization, scope, and lifetime of variables.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Data Types in Java</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Primitive (8 types):</strong>
+                        <ul class="list-circle ml-4">
+                            <li>Integers: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code> (Example: <code>int age = 25;</code>)</li>
+                            <li>Floating-point: <code>float</code>, <code>double</code> (Example: <code>double price = 19.99;</code>)</li>
+                            <li>Characters: <code>char</code> (Example: <code>char grade = 'A';</code>)</li>
+                            <li>Boolean: <code>boolean</code> (Example: <code>boolean isComplete = true;</code>)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Reference:</strong> Store memory addresses of objects (Example: <code>String name = "Java";</code>, Arrays, Classes).</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Dynamic Initialization</h3>
+                <p>Variables initialized at runtime using expressions or method calls.</p>
+                <pre class="whitespace-pre-wrap">
+// 'c' is initialized dynamically
+double a = 3.0;
+double b = 4.0;
+double c = Math.sqrt(a * a + b * b); 
+</pre>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Scope and Lifetime</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Scope:</strong> Region where a variable is accessible (determined by <code>{...}</code> block).
+                        <ul class="list-circle ml-4">
+                            <li>Instance Variables: Declared inside class, outside method.</li>
+                            <li>Local Variables: Declared inside method/block; accessible only there.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lifetime:</strong> How long a variable exists in memory. Local variables are destroyed when their block exits.</li>
+                </ul>
+            </section>
+
+            <!-- Q5 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q5. Explain type conversion and casting in Java with examples.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Type Conversion (Automatic/Widening)</h3>
+                <p>Automatic conversion to a larger, compatible type. No explicit cast needed.</p>
+                <pre class="whitespace-pre-wrap">
+int i = 100;
+double d = i; // Automatic conversion (int to double)
+// Output: 100.0
+</pre>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Type Casting (Manual/Narrowing)</h3>
+                <p>Manual conversion to a smaller or incompatible type. Requires explicit cast <code>(target_type)</code> and may lose precision or magnitude.</p>
+                <pre class="whitespace-pre-wrap">
+double d = 15.75;
+int i = (int) d; // Explicit casting (double to int)
+// Output: 15 (decimal truncated)
+
+int sum = 257;
+byte b = (byte) sum; // Loss of magnitude (257 becomes 1)
+</pre>
+            </section>
+
+            <!-- Q6 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q6. List and explain different types of operators in Java with suitable examples.</h2>
+                
+                <ul class="list-disc ml-6 space-y-2">
+                    <li><strong>Arithmetic:</strong> (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>++</code>, <code>--</code>) Used for calculations.</li>
+                    <li><strong>Relational:</strong> (<code>==</code>, <code>!=</code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code>) Compares values, returns boolean.</li>
+                    <li><strong>Logical:</strong> (<code>&&</code>, <code>||</code>, <code>!</code>) Combines boolean expressions.</li>
+                    <li><strong>Assignment:</strong> (<code>=</code>, <code>+=</code>, <code>-=</code>, etc.) Assigns values.</li>
+                    <li><strong>Ternary (Conditional):</strong> (<code>? :</code>) Shorthand <code>if-else</code>. Example: <code>status = (a &gt; 10) ? "Large" : "Small";</code></li>
+                    <li><strong>Bitwise:</strong> (<code>&</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code><<</code>, <code>>></code>) Operate on individual bits.</li>
+                </ul>
+                <pre class="whitespace-pre-wrap">
+// Example: Arithmetic & Ternary
+int a = 10, b = 3;
+int result = a % b; // result = 1
+String status = (a > b) ? "True" : "False"; // status = "True"
+</pre>
+            </section>
+
+            <!-- Q7 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q7. Write Java programs demonstrating conditional statements, looping statements, and jump statements.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Code Example (Control Flow)</h3>
+                <pre class="whitespace-pre-wrap">
+class ControlFlowDemo {
+    public static void main(String[] args) {
+        int number = 7;
+
+        // 1. Conditional Statement (if-else)
+        if (number % 2 == 0) {
+            System.out.println(number + " is even.");
+        } else {
+            System.out.println(number + " is odd."); 
+        }
+        
+        // 2. Looping Statement (for loop)
+        System.out.println("\nCounting with Jumps:");
+        for (int i = 1; i &lt;= 10; i++) {
+            
+            // 3a. Jump Statement (continue)
+            if (i == 4) {
+                System.out.print("Skip 4, ");
+                continue; // Skips printing 4
+            }
+            
+            System.out.print(i + " ");
+            
+            // 3b. Jump Statement (break)
+            if (i == 7) {
+                break; // Terminates the loop immediately
+            }
+        }
+    }
+}
+</pre>
+                <p class="text-sm text-gray-500 mt-2">Expected Output: <code>7 is odd.</code> <br> <code>Counting with Jumps:</code> <br> <code>1 2 3 Skip 4, 5 6 7 </code></p>
+            </section>
+
+            <!-- Q8 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q8. Explain the concept of arrays in Java. Describe how array values are stored in memory.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Concept of Arrays</h3>
+                <p>An array is a **fixed-size, sequential collection** of elements of the same data type. In Java, arrays are **objects**, dynamically allocated using <code>new</code>, and are zero-indexed.</p>
+                <pre class="whitespace-pre-wrap">
+int[] numbers = new int[5]; // Array of 5 integers
+String[] names = {"Alice", "Bob"}; // Array of 2 Strings
+</pre>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Memory Storage</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li>**Reference (Stack):** The array variable (e.g., <code>numbers</code>) is a reference stored on the stack, holding the memory address of the array object.</li>
+                    <li>**Elements (Heap):** The actual array elements are stored in one **contiguous block of memory** on the heap. This ensures fast, indexed access.</li>
+                </ul>
+            </section>
+
+            <!-- Q9 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q9. Differentiate between one-dimensional, two-dimensional, and multidimensional arrays with code examples.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">1. One-Dimensional (1D) Array</h3>
+                <p>A linear list, requiring one index (<code>array[i]</code>).</p>
+                <pre class="whitespace-pre-wrap">
+int[] numbers = {10, 20, 30};
+System.out.println(numbers[1]); // Output: 20
+</pre>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">2. Two-Dimensional (2D) Array</h3>
+                <p>An array of arrays (matrix/table), requiring two indices (<code>array[row][col]</code>).</p>
+                <pre class="whitespace-pre-wrap">
+int[][] matrix = { {1, 2}, {3, 4} };
+// Access: matrix[row index][column index]
+System.out.println(matrix[1][0]); // Output: 3
+</pre>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">3. Multidimensional Array</h3>
+                <p>Arrays with three or more dimensions (e.g., 3D array of arrays of arrays, <code>array[page][row][col]</code>). Used for complex volume or time-series data.</p>
+            </section>
+
+            <!-- Q10 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q10. Define class and object in Java. Explain how objects are declared and how object reference variables are assigned.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Class vs. Object</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Class:</strong> A **blueprint** or **template** (logical entity) that defines data (attributes) and methods (behaviors). Does not occupy memory.</li>
+                    <li><strong>Object:</strong> A **real-world instance** of a class (physical entity) that occupies memory (on the heap) and has specific state and behavior.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Declaration and Assignment</h3>
+                <p>Object creation is a three-step process (often combined):</p>
+                <pre class="whitespace-pre-wrap">
+// 1. Declaration (Creates a reference variable 'myDog' on the stack)
+Dog myDog; 
+
+// 2. Instantiation (Allocates memory on the heap using 'new')
+// 3. Initialization (Calls the Dog() constructor)
+myDog = new Dog(); 
+
+// Object Reference Assignment (Both references point to the same object)
+Dog anotherDog = myDog;
+</pre>
+            </section>
+
+            <!-- Q11 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q11. Explain methods and constructors in Java. Discuss access control and garbage collection mechanisms.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Methods and Constructors</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Method:</strong> Defines the behavior of an object. Must have a return type (or <code>void</code>).</li>
+                    <li><strong>Constructor:</strong> Special method used for **initialization**. Automatically called on object creation. Must have the same name as the class and no return type.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Access Control (Modifiers)</h3>
+                <p>Controls visibility:</p>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong><code>private</code>:</strong> Only accessible within the same class. (Highest encapsulation)</li>
+                    <li><strong><code>default</code>:</strong> Accessible only within the same package.</li>
+                    <li><strong><code>protected</code>:</strong> Accessible within the same package and by subclasses.</li>
+                    <li><strong><code>public</code>:</strong> Accessible from everywhere. (Lowest encapsulation)</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Garbage Collection (GC)</h3>
+                <p>Automatic memory management that deallocates memory occupied by objects that are **no longer referenced** by the program, preventing memory leaks.</p>
+            </section>
+
+            <!-- Q12 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q12. Discuss the use of static and final keywords with data and methods in Java.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">The <code>static</code> Keyword (Class-level)</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Fields:</strong> Creates a **class variable**. One copy is shared by all instances (e.g., <code>static int counter;</code>).</li>
+                    <li><strong>Methods:</strong> Creates a **class method**. Belongs to the class, not an object. Cannot directly access non-static members. (e.g., <code>public static void main(...)</code>)</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">The <code>final</code> Keyword (Immutable)</h3>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Fields:</strong> Creates a **constant**. Value cannot be changed after initialization (e.g., <code>final double PI = 3.14;</code>).</li>
+                    <li><strong>Methods:</strong> Cannot be overridden by subclasses.</li>
+                    <li><strong>Classes:</strong> Cannot be inherited (e.g., the <code>String</code> class is final).</li>
+                </ul>
+            </section>
+
+            <!-- Q13 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q13. Explain method and constructor overloading with examples.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Overloading (Compile-time Polymorphism)</h3>
+                <p>Defining multiple methods or constructors in the same class with the same name but a different **signature** (different number, type, or order of parameters).</p>
+                
+                <h4 class="text-lg font-bold text-gray-800 mt-3">Method Overloading:</h4>
+                <pre class="whitespace-pre-wrap">
+class Calculator {
+    // 1. Adds two integers
+    public int add(int a, int b) { return a + b; }
+    
+    // 2. Adds two doubles (Different parameter types)
+    public double add(double a, double b) { return a + b; }
+    
+    // 3. Adds three integers (Different number of parameters)
+    public int add(int a, int b, int c) { return a + b + c; }
+}
+</pre>
+
+                <h4 class="text-lg font-bold text-gray-800 mt-3">Constructor Overloading:</h4>
+                <p>Provides multiple ways to initialize an object.</p>
+                <pre class="whitespace-pre-wrap">
+class Box {
+    // Constructor 1: Default
+    Box() { width = height = 1.0; } 
+
+    // Constructor 2: Cube
+    Box(double len) { width = height = depth = len; } 
+}
+</pre>
+            </section>
+
+            <!-- Q14 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q14. Describe parameter passing in Java (call by value). Give a simple example to illustrate recursion.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Parameter Passing: Call by Value</h3>
+                <p>Java **always** uses Call by Value. A **copy** of the argument's value is passed to the method.</p>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Primitive Types:</strong> The value itself is copied. Changes inside the method do not affect the original variable.</li>
+                    <li><strong>Reference Types (Objects/Arrays):</strong> The **reference (memory address)** is copied. Since the copy points to the same object on the heap, changes to the object's *data* inside the method *are* reflected outside.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Recursion Example (Factorial)</h3>
+                <p>Recursion is a method calling itself. It requires a **base case** to stop and a **recursive step**.</p>
+                <pre class="whitespace-pre-wrap">
+class FactorialRecursion {
+    public static long calculateFactorial(int n) {
+        // Base Case: Stops the recursion
+        if (n &lt;= 1) {
+            return 1;
+        } 
+        // Recursive Step: Calls itself
+        return n * calculateFactorial(n - 1);
+    }
+}
+</pre>
+            </section>
+
+            <!-- Q15 -->
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mt-6 section-header">Q15. Write short notes on nested classes and their advantages.</h2>
+                
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Nested Classes</h3>
+                <p>A class declared entirely within the body of another class (the enclosing class). They are used to logically group classes that are only relevant to the enclosing class.</p>
+                <ul class="list-disc ml-6 space-y-1">
+                    <li><strong>Static Nested Class:</strong> Can be instantiated without an outer class instance. Cannot access outer class's non-static members.</li>
+                    <li><strong>Inner Class (Non-static):</strong> Requires an outer class instance. Can access all members (including private) of the outer class.</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-gray-600 mt-4">Advantages of Nested Classes</h3>
+                <ol class="list-decimal ml-6 space-y-1">
+                    <li>**Increased Encapsulation:** Hides implementation details, as inner classes can access private members of the outer class.</li>
+                    <li>**Code Readability:** Logically groups helper classes with the class that uses them.</li>
+                    <li>**Maintainability:** Prevents namespace pollution.</li>
+                </ol>
+            </section>
+
+            <!-- End of Assignment Solutions Content -->
+        </div>
+    </div>
+    
+    <!-- PDF Libraries (Must be loaded at the end) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        const { jsPDF } = window.jspdf;
+        const contentId = 'content';
+        const loader = document.getElementById('loader');
+        const downloadButton = document.getElementById('downloadButton');
+
+        // Utility function to show/hide loader
+        function toggleLoading(isLoading) {
+            if (isLoading) {
+                loader.classList.remove('hidden');
+                downloadButton.disabled = true;
+                downloadButton.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                loader.classList.add('hidden');
+                downloadButton.disabled = false;
+                downloadButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // Main function to generate and download the PDF
+        async function downloadPDF() {
+            toggleLoading(true);
+
+            // Hide the button container for the screenshot, then restore it
+            const header = document.querySelector('header');
+            const originalSticky = header.style.position;
+            const originalZIndex = header.style.zIndex;
+            
+            // Prepare the content div for better printing
+            const element = document.getElementById(contentId);
+            
+            try {
+                const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait, 'mm' unit, 'a4' size
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const margin = 10; // Margin in mm
+
+                // Use html2canvas to render the content
+                const canvas = await html2canvas(element, { 
+                    scale: 2, // Increase scale for better image quality
+                    logging: false, // Turn off logging
+                    useCORS: true 
+                });
+
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+                const imgWidth = pdfWidth - (margin * 2); // Calculate image width based on PDF width and margins
+                const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
+
+                let heightLeft = imgHeight;
+                let position = margin; // Starting position for the image (top margin)
+
+                // Add first page image
+                pdf.addImage(imgData, 'JPEG', margin, position, imgWidth, imgHeight);
+                heightLeft -= (pdfHeight - position); // Reduce remaining height by the space used
+
+                // Loop for multi-page content
+                while (heightLeft > 0) {
+                    position = margin; // Reset position for new page
+                    pdf.addPage();
+                    // Calculate Y position for the next segment, relative to the canvas origin
+                    let srcY = imgHeight - heightLeft;
+
+                    // Add image segment. Note the 4th and 5th args are width and height for the placement on the PDF page.
+                    // The 6th and 7th args specify the source coordinates (clipping) on the canvas.
+                    pdf.addImage(
+                        imgData, 
+                        'JPEG', 
+                        margin, 
+                        position, 
+                        imgWidth, 
+                        imgHeight, 
+                        null, 
+                        'NONE', 
+                        srcY / (imgHeight / canvas.height), // Source Y start
+                        (srcY + pdfHeight - margin) / (imgHeight / canvas.height) // Source Y end
+                    );
+                    
+                    heightLeft -= (pdfHeight - margin); // Reduce remaining height by page height
+                }
+
+                pdf.save('OOPJ_Assignment_Solutions.pdf');
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                // Fallback to a simpler download (e.g., Markdown text) if PDF generation fails.
+                alert('Could not generate PDF. Please try again or check the console for details.');
+            } finally {
+                // Always restore the header state
+                header.style.position = originalSticky;
+                header.style.zIndex = originalZIndex;
+                toggleLoading(false);
+            }
+        }
+    </script>
+</body>
+</html>
